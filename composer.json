@@ -1,0 +1,23 @@
+{
+    "name": "rekmixa/async-php-exapmles",
+    "description": "Async PHP Examples",
+    "require": {
+        "php": ">=8.3.8",
+        "vlucas/phpdotenv": "^5.3",
+        "clio/clio": "^0.1.8"
+    },
+    "autoload": {
+        "psr-4": {
+            "App\\": "app",
+            "Tests\\": "tests"
+        }
+    },
+    "require-dev": {
+        "infection/infection": "^0.29.6"
+    },
+    "config": {
+        "allow-plugins": {
+            "infection/extension-installer": true
+        }
+    }
+}
