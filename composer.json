@@ -9,7 +9,8 @@
         "revolt/event-loop": "^1.0",
         "amphp/http-server": "^3.3",
         "amphp/log": "^2.0",
-        "react/async": "4.3"
+        "react/async": "4.3",
+        "openswoole/core": "22.1.5"
     },
     "autoload": {
         "psr-4": {
