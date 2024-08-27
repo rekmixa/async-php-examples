@@ -28,6 +28,7 @@ RUN apt-get update && apt-get install vim -y && \
     apt-get install openssl -y && \
     apt-get install libssl-dev -y && \
     apt-get install wget -y && \
+    apt-get install curl -y && \
     apt-get install git -y && \
     apt-get install procps -y && \
     apt-get install htop -y
@@ -41,7 +42,7 @@ RUN yes | pecl install ${XDEBUG_VERSION} \
 
 RUN cd /tmp && git clone https://github.com/openswoole/ext-openswoole.git && \
     cd ext-openswoole && \
-    git checkout v22.0.0 && \
+    git checkout v22.1.2 && \
     phpize  && \
     ./configure --enable-openssl --enable-hook-curl --enable-http2 --enable-mysqlnd && \
     make && make install
