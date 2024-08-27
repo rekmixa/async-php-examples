@@ -24,6 +24,14 @@ RUN apt update \
     && docker-php-ext-configure zip \
     && docker-php-ext-install zip
 
+RUN apt-get update && apt-get install vim -y && \
+    apt-get install openssl -y && \
+    apt-get install libssl-dev -y && \
+    apt-get install wget -y && \
+    apt-get install git -y && \
+    apt-get install procps -y && \
+    apt-get install htop -y
+
 RUN apt-get update && apt-get install -y libpq-dev && docker-php-ext-install pdo pdo_pgsql
 
 RUN yes | pecl install ${XDEBUG_VERSION} \
@@ -31,7 +39,15 @@ RUN yes | pecl install ${XDEBUG_VERSION} \
     && echo "xdebug.mode=debug" >> /usr/local/etc/php/conf.d/xdebug.ini \
     && echo "xdebug.remote_autostart=off" >> /usr/local/etc/php/conf.d/xdebug.ini \
 
-RUN pecl install openswoole-22.1.2
+RUN cd /tmp && git clone https://github.com/openswoole/ext-openswoole.git && \
+    cd ext-openswoole && \
+    git checkout v22.0.0 && \
+    phpize  && \
+    ./configure --enable-openssl --enable-hook-curl --enable-http2 --enable-mysqlnd && \
+    make && make install
+
+RUN touch /usr/local/etc/php/conf.d/openswoole.ini && \
+    echo 'extension=openswoole.so' > /usr/local/etc/php/conf.d/zzz_openswoole.ini
 
 ENTRYPOINT ["bootstrap.sh"]
 CMD ["php-fpm"]
