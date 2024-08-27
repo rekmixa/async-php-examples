@@ -31,7 +31,7 @@ RUN apt-get update && apt-get install vim -y && \
     apt-get install curl -y && \
     apt-get install git -y && \
     apt-get install procps -y && \
-    apt-get install htop -y
+    apt-get install htop -y && \
     apt-get install libcurl4-openssl-dev -y
 
 RUN apt-get update && apt-get install -y libpq-dev && docker-php-ext-install pdo pdo_pgsql
