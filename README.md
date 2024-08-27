@@ -27,6 +27,8 @@ php -S localhost:80
 php -S localhost:80 > /dev/null 2>&1 &
 php -S localhost:81
 php -S localhost:81 > /dev/null 2>&1 &
+php -S localhost:82
+php -S localhost:82 > /dev/null 2>&1 &
 ```
 
 ### Start AMPHP-server
