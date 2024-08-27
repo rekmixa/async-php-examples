@@ -4,7 +4,12 @@
     "require": {
         "php": ">=8.3.8",
         "vlucas/phpdotenv": "^5.3",
-        "clio/clio": "^0.1.8"
+        "clio/clio": "^0.1.8",
+        "amphp/amp": "^3.0",
+        "revolt/event-loop": "^1.0",
+        "amphp/http-server": "^3.3",
+        "amphp/log": "^2.0",
+        "react/async": "4.3"
     },
     "autoload": {
         "psr-4": {
